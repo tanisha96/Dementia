@@ -1,0 +1,91 @@
+{% extends 'analyze/base.html' %}
+
+
+{% load static %}
+{% block css %}
+
+<html lang="en">
+<head>
+	<title>Table V03</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'table/images/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'table/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'table/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'table/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'table/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'table/vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'table/css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'table/css/main.css' %}">
+<!--===============================================================================================-->
+</head>
+<body>
+
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100 ver1 m-b-110">
+					<table data-vertable="ver1">
+						<thead>
+							<tr class="row100 head">
+								<th class="column100 column1" data-column="column1">First Name</th>
+								<th class="column100 column2" data-column="column2">Last Name</th>
+								<th class="column100 column3" data-column="column3">Email-address</th>
+								<th class="column100 column4" data-column="column4">Alpha Frequency</th>
+								<th class="column100 column5" data-column="column5">Beta Frequency</th>
+								<th class="column100 column6" data-column="column6">Theta Frequency</th>
+								<th class="column100 column7" data-column="column7">Delta Frequency</th>
+								<th class="column100 column8" data-column="column8">Action</th>
+
+							</tr>
+						</thead>
+						<tbody>
+						{% for t,i in lis %}
+							<tr class="row100">
+								<td class="column100 column1" data-column="column1">{{ t.patient_fname }}</td>
+								<td class="column100 column2" data-column="column2">{{ t.patient_lname }}</td>
+								<td class="column100 column3" data-column="column3">{{ t.patient_email }}</td>
+
+								<td class="column100 column4" data-column="column4">{{ i.alpha }}</td>
+								<td class="column100 column5" data-column="column5">{{ i.beta }}</td>
+								<td class="column100 column6" data-column="column6">{{ i.theta }}</td>
+
+								<td class="column100 column7" data-column="column7">{{ i.delta }}</td>
+								<td class="column100 column8" data-column="column8"><button>Analyze</button></td>
+
+							</tr>
+						{% endfor %}
+
+
+						</tbody>
+					</table>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+<!--===============================================================================================-->
+	<script src="{% static 'table/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'table/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'table/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'table/vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'table/js/main.js' %}"></script>
+
+</body>
+</html>
+{% endblock %}
